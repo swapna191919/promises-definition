@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: greenyellow;">promise :</h1>
+   <p> "Producing code" is code that can take some time</p>
+
+"Consuming code" is code that must wait for the result
+
+<p>A Promise is an Object that links Producing code and Consuming code</p>
+    <h1 style="color:red">Async :</h1>
+    Let’s start with the async keyword. It can be placed before a function, like this:
+    <pre>async function f() {
+        return 1;
+       }
+       async function f() {
+        return 1;
+       }</pre>
+   <p> The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.</p>
+   
+  
+ <pre>async function f() {
+    return 1;
+  }
+  
+  f().then(alert); // 1
+</pre>
+We could explicitly return a promise, which would be the same:
+<pre>async function f() {
+    return Promise.resolve(1);
+  }
+  
+  f().then(alert);
+  </pre>
+  So, async ensures that the function returns a promise, and wraps non-promises in it. Simple enough, right? But not only that. There’s another keyword, await, that works only inside async functions, and it’s pretty cool.
+    <h1 style="color:blue">Await :</h1>
+    the syntax:
+  <pre> works only inside async functions
+let value = await promise;</pre>
+The keyword await makes JavaScript wait until that promise settles and returns its result.
+
+Here’s an example with a promise that resolves in 1 second:
+<pre>async function f() {
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 1000)
+    });
+  
+    let result = await promise; // wait until the promise resolves (*)
+  
+    alert(result); // "done!"
+  }
+  
+  f();</pre>
+  Can’t use await in regular functions
+  <h1 style="color:green">API</h1>
+  
+  <p>A web API is an application programming interface (API) for either a web server or a web browser. As a web development concept, it can be related to a web application's client side. A server-side web API consists of one or more publicly exposed endpoints to a defined request–response message system, typically expressed in JSON or XML by means of an HTTP-based web server. A server API is not considered a server-side web API, unless it is publicly accessible by a remote web application.</p>
+<h1 style="color:red">Fetch</h1>
+JavaScript fetch() method is used to request data from a server. The request can be of any type of API that returns the data in JSON or XML. The fetch() method requires one parameter, the URL to request, and returns a promise.
+</body>
+</html>
